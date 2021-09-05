@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace cohesionChallenge.Models
 {
@@ -12,6 +13,8 @@ namespace cohesionChallenge.Models
         public Guid Id { get; set; }
         public string BuildingCode { get; set; }
         public string Description { get; set; }
+
+        [JsonConverter(typeof(JsonStringEnumConverter))]
         public CurrentStatus CurrentStatus { get; set; }
         public string CreatedBy { get; set; }
         public DateTime CreatedDate { get; set; }
